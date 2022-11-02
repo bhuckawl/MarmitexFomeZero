@@ -10,7 +10,7 @@ import EntregaForm from './src/views/EntregasForm';
 import { UsersProvider } from './src/context/UsersContext';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-import { UsersProvider2 } from './src/context/EntregasContext';
+
 
 
 
@@ -295,7 +295,7 @@ const screenOptions = {
 }
 const TelaNovaEntrega = props => {
      return (
- <UsersProvider2>
+ <UsersProvider>
              
                 <Stack.Navigator
                     initialRouteName="EntregaList"
@@ -319,7 +319,7 @@ const TelaNovaEntrega = props => {
                     />
                 </Stack.Navigator>
         
-        </UsersProvider2>
+        </UsersProvider>
      )
      }
 
