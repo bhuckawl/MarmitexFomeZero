@@ -38,7 +38,7 @@ export default ({route, navigation}) =>{
                         payload: user
                     })
                 }}
-                color='#6200ee'
+                color='#eb3b5b'
             />
         </View>
     )
