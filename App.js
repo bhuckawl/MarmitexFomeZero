@@ -303,7 +303,7 @@ const TelaNovaEntrega = props => {
                 >
                     <Stack.Screen
                         name="EntregaList"
-                        component={EntregaList}
+                        component={UserList}
                         options={() => {
                             return{
                                 title: "Cadastro Entregas"
@@ -312,7 +312,7 @@ const TelaNovaEntrega = props => {
                     />
                     <Stack.Screen
                         name="EntregaForm"
-                        component={EntregaForm}
+                        component={UserForm}
                         options={{
                             title: "Cadastro Entregas"
                         }}
