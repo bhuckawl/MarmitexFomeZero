@@ -5,8 +5,8 @@ import { DataTable } from 'react-native-paper';
 import { estilos} from "./Estilos";
 import UserList from './src/views/UserList';
 import UserForm from './src/views/UserForm';
-import EntregaList from './src/views/EntregasList';
-import EntregaForm from './src/views/EntregasForm';
+import EntregasList from './src/views/EntregasList';
+import EntregasForm from './src/views/EntregasForm';
 import { UsersProvider } from './src/context/UsersContext';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
@@ -295,30 +295,22 @@ const screenOptions = {
 }
 const TelaNovaEntrega = props => {
      return (
- <UsersProvider>
-             
+ <UsersProvider>             
                 <Stack.Navigator
-                    initialRouteName="EntregaList"
+                    initialRouteName="EntregaForm"
                     screenOptions={screenOptions}
                 >
                     <Stack.Screen
-                        name="EntregaList"
-                        component={UserList}
+                        name="EntregaForm"
+                        component={EntregasForm}
                         options={() => {
                             return{
                                 title: "Cadastro Entregas"
                             }
                         }}
                     />
-                    <Stack.Screen
-                        name="EntregaForm"
-                        component={UserForm}
-                        options={{
-                            title: "Cadastro Entregas"
-                        }}
-                    />
-                </Stack.Navigator>
-        
+              
+                </Stack.Navigator>        
         </UsersProvider>
      )
      }
@@ -335,7 +327,7 @@ const TelaNovaEntrega = props => {
                 <Stack.Screen name="TelaDoacoes" component={TelaDoacoes} />
                 <Stack.Screen name="TelaEntregas" component={TelaEntregas} />
                 <Stack.Screen name="TelaNovaDoacao" component={TelaNovaDoacao} />
-                 <Stack.Screen name="TelaNovaEntrega" component={TelaNovaEntrega} />
+                <Stack.Screen name="TelaNovaEntrega" component={TelaNovaEntrega} />
               </Stack.Navigator>
             </NavigationContainer>
         );
