@@ -5,9 +5,14 @@ import { DataTable } from 'react-native-paper';
 import { estilos} from "./Estilos";
 import UserList from './src/views/UserList';
 import UserForm from './src/views/UserForm';
+import EntregaList from './src/views/EntregasList';
+import EntregaForm from './src/views/EntregasForm';
 import { UsersProvider } from './src/context/UsersContext';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
+import { UsersProvider2 } from './src/context/EntregasContext';
+
+
 
 // Conexão com o banco de dados Firebase
 
@@ -167,6 +172,7 @@ const TelaDoacoes = props => {
      <View style={estilos.buttonGeral}><Button title="ENTREGAS" color='#F97089' onPress={onEntregas}></Button></View>
      
     </View> 
+    <Text style={{paddingBottom:40}}></Text>
     <View style={estilos.buttonGeral}><Button title="Nova Doação" color='#eb3b5b' onPress={onNovaDoacao}></Button></View>
     
   </View>
@@ -203,16 +209,19 @@ const TelaEntregas = props => {
     const onDoacoes = () => {props.navigation.navigate('TelaDoacoes');}
     const onEntregas = () => {props.navigation.navigate('TelaEntregas');}
     const onGeral = () => {props.navigation.navigate('TelaGeral');}
+    const onNovaEntrega = () => {props.navigation.navigate('TelaNovaEntrega');}
     return (
         
         <View style={estilos.container}>
-
+ 
         <View style={estilos.DivCampoLogin}>
       <View style={{flex: 1, flexDirection: 'row'}}>
       <View style={estilos.buttonGeral}><Button title="DOAÇÕES" color='#F97089' onPress={onDoacoes}></Button></View> 
       <View style={estilos.buttonGeral}><Button title="GERAL" color='#F97089' onPress={onGeral}></Button></View>
      <View style={estilos.buttonGeral}><Button title="ENTREGAS" color='#eb3b5b' onPress={onEntregas}></Button></View>
     </View> 
+      <Text style={{paddingBottom:40}}></Text>
+    <View style={estilos.buttonGeral}><Button title="Nova Entrega" color='#eb3b5b' onPress={onNovaEntrega}></Button></View>
   </View>
        <Text style={{paddingBottom:50}}></Text>
     <Text style={{paddingBottom:50}}>     Próximas Entregas</Text>
@@ -245,7 +254,7 @@ const TelaEntregas = props => {
 
 const TelaNovaDoacao = props => {
      return (
- <UsersProvider>
+ <UsersProvider2>
             
                 <Stack.Navigator
                     initialRouteName="UserList"
@@ -269,7 +278,7 @@ const TelaNovaDoacao = props => {
                     />
                 </Stack.Navigator>
             
-        </UsersProvider>
+        </UsersProvider2>
         
      )
      
@@ -284,6 +293,36 @@ const screenOptions = {
         textAlign: 'center'
     }
 }
+const TelaNovaEntrega = props => {
+     return (
+ <UsersProvider>
+             
+                <Stack.Navigator
+                    initialRouteName="EntregaList"
+                    screenOptions={screenOptions}
+                >
+                    <Stack.Screen
+                        name="EntregaList"
+                        component={EntregaList}
+                        options={() => {
+                            return{
+                                title: "Cadastro Entregas"
+                            }
+                        }}
+                    />
+                    <Stack.Screen
+                        name="EntregaForm"
+                        component={EntregaForm}
+                        options={{
+                            title: "Cadastro Entregas"
+                        }}
+                    />
+                </Stack.Navigator>
+        
+        </UsersProvider>
+     )
+     }
+
     const App = () => {
 
         const Stack = createStackNavigator();
@@ -296,6 +335,7 @@ const screenOptions = {
                 <Stack.Screen name="TelaDoacoes" component={TelaDoacoes} />
                 <Stack.Screen name="TelaEntregas" component={TelaEntregas} />
                 <Stack.Screen name="TelaNovaDoacao" component={TelaNovaDoacao} />
+                 <Stack.Screen name="TelaNovaEntrega" component={TelaNovaEntrega} />
               </Stack.Navigator>
             </NavigationContainer>
         );
