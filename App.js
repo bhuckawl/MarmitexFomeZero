@@ -254,7 +254,7 @@ const TelaEntregas = props => {
 
 const TelaNovaDoacao = props => {
      return (
- <UsersProvider2>
+ <UsersProvider>
             
                 <Stack.Navigator
                     initialRouteName="UserList"
@@ -278,7 +278,7 @@ const TelaNovaDoacao = props => {
                     />
                 </Stack.Navigator>
             
-        </UsersProvider2>
+        </UsersProvider>
         
      )
      
@@ -295,7 +295,7 @@ const screenOptions = {
 }
 const TelaNovaEntrega = props => {
      return (
- <UsersProvider>
+ <UsersProvider2>
              
                 <Stack.Navigator
                     initialRouteName="EntregaList"
@@ -319,7 +319,7 @@ const TelaNovaEntrega = props => {
                     />
                 </Stack.Navigator>
         
-        </UsersProvider>
+        </UsersProvider2>
      )
      }
 
